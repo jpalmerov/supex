@@ -1,0 +1,53 @@
+<mat-card class="p-8 h-[800px] w-[1000px] m-8 flex flex-col items-stretch">
+  <div class="flex flex-row justify-between items-center">
+    <mat-card-title>Script Debug</mat-card-title>
+    <div class="flex flex-row justify-end items-center">
+      <mat-icon>close</mat-icon>
+    </div>
+  </div>
+  <div class="flex flex-col items-stretch">
+    <div class="flex flex-row items-center justify-between">
+      <div class="flex flex-row w-full">
+        <mat-select value="value" class="w-1/2 h-11">
+          <mat-option value="1 w-1/2 h-11">1</mat-option>
+          <mat-option value="2 w-1/2 h-11">2</mat-option>
+          <mat-option value="3 w-1/2 h-11">3</mat-option>
+        </mat-select>
+        <div class="w-6"></div>
+        <input class="w-full h-11 ps-4" matInput placeholder="Search..." [(ngModel)]="searchText" (keyup)="onSearchEvent($event)">
+      </div>
+      <div class="flex flex-row items-center w-fit h-11">
+        <mat-icon>arrow_upward</mat-icon>
+        <mat-icon (click)="scrollBottom()">arrow_downward</mat-icon>
+        <mat-icon>download</mat-icon>
+        <mat-icon>content_copy</mat-icon>
+      </div>
+    </div>
+  </div>
+  <hr class="w-full p-0 m-0">
+  <div class="flex flex-col items-stretch justify-start h-full w-full overflow-x-scroll overflow-y-scroll"
+       #logWindow
+       (scroll)="onLogWindowScroll()"
+  >
+    <div *ngFor="let line of logFile?.lines; let i = index"
+           class="flex flex-row items-center justify-between text-[16px] py-0.5"
+           (mousedown)="onLogMouseDown($event, i)"
+           (mouseenter)="onLogMouseEnter($event, i)"
+           (mouseleave)="onLogMouseLeave($event, i)"
+           (mouseup)="onLogMouseUp($event, i)"
+           [ngClass]="isBetweenSelection(i)? 'bg-blue-200' : (showingCopyButtonIndex == i && !isSelectedText() ? 'bg-gray-200' : '')"
+    >
+      <div class="flex flex-row items-center justify-start w-full"
+           style="white-space: pre; user-select: none;"
+           [innerHTML]="lineContent(line)">
+      </div>
+      <div (mouseenter)="copying=true" (mouseleave)="copying=false"
+           [ngClass]="hasToShowCopyButton(i) ? 'text-opacity-100' : 'opacity-0'">
+        <button (click)="onCopyClick(i)" class="w-[40px] h-[30px]"
+                [ngClass]="isSelectedText()? 'bg-blue-400':'bg-transparent'">
+          <mat-icon>content_copy</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>

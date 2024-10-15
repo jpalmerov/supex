@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, document, body, app-root { height: 100vh; }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'dancing-script';
+  src: url("assets/fonts/DancingScript-VariableFont_wght.ttf") format("truetype");
+}
+
+.toolbar-title {
+  font-family: dancing-script;
+  color: white;
+}
+

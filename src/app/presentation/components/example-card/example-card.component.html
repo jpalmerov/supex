@@ -1,0 +1,10 @@
+<mat-card class="m-2 cursor-pointer relative h-[430px] max-w-[300px]" (click)="onCardClick()">
+  <div class="flex flex-col justify-between items-stretch">
+    <img mat-card-image class="h-[280px]" src="{{example!.image}}" alt="example image">
+    <div class="flex flex-col justify-start items-stretch p-4">
+      <mat-card-title>{{ example!.name }}</mat-card-title>
+      <mat-card-subtitle class="line-clamp-2">{{ example!.description }}</mat-card-subtitle>
+    </div>
+  </div>
+  <div class="hover-cap left-0 top-0 w-full h-full absolute"></div>
+</mat-card>

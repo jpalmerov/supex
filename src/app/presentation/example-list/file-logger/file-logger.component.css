@@ -1,0 +1,13 @@
+.log-line{
+
+}
+
+.log-line:hover{
+  background-color: rgb(227, 227, 227);
+}
+
+::ng-deep div#JSONContainer span.highlighted-text{
+  font-weight: bold;
+  font-style: italic;
+  color: #ff0000;
+}

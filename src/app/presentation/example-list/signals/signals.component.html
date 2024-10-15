@@ -1,0 +1,45 @@
+<div class="flex flex-col items-stretch justify-start h-screen w-full p-10">
+  <h1>Signals</h1>
+  <h3>Signals are a way to create reactive data streams in Angular. They are similar to RxJS observables, but they are
+    more lightweight and easier to use.</h3>
+  <div style="height: 1rem"></div>
+  <mat-card class="flex flex-col items-center justify-center p-2 m-2">
+    <mat-card-title>Counter example A</mat-card-title>
+    <mat-card-subtitle>When you click the button, the counter will be incremented by a signal.</mat-card-subtitle>
+    <div style="height: 1rem"></div>
+    <div class="flex flex-row items-center justify-center">
+      <button mat-raised-button color="accent" (click)="incrementCounterA()">Increment</button>
+      <div class="w-5"></div>
+      <p class="text-lg">Counter: {{ counterA() }}</p>
+    </div>
+  </mat-card>
+  <mat-card class="flex flex-col items-center justify-center p-2 m-2">
+    <mat-card-title>Counter example B</mat-card-title>
+    <mat-card-subtitle>In this case, the counter will be incrementing automatically by a signal created from an
+      observable instead.
+    </mat-card-subtitle>
+    <div style="height: 1rem"></div>
+    <p class="text-lg">Counter: {{ counterB() }}</p>
+  </mat-card>
+  <mat-card class="flex flex-col items-center justify-center p-2 m-2">
+    <mat-card-title>Selectable list</mat-card-title>
+    <mat-card-subtitle>In this case, you select any item from the left list, and the right text will be updated with the
+      selected item.
+    </mat-card-subtitle>
+    <div style="height: 1rem"></div>
+    <div class="flex flex-row items-start justify-start">
+      <div class="flex flex-col items-center justify-around h-[300px] overflow-y-scroll scroll-auto">
+        <div class="flex flex-row items-center justify-start"
+             *ngFor="let index of [0,1,2,3,4,5,6,7,8,9,10]">
+          <div class="text-xl p-2" (click)="selectedIndex.set(index)"
+               [ngClass]="selectedIndex()==index?'font-bold bg-gray-300': 'font-light bg-white cursor-pointer'">
+            The item number: {{ index }}
+          </div>
+        </div>
+      </div>
+      <div class="text-xl p-2 ml-2">
+        The item number: {{ selectedIndex() }}
+      </div>
+    </div>
+  </mat-card>
+</div>

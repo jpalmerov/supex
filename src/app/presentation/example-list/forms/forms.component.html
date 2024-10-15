@@ -1,0 +1,7 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+  <button mat-raised-button color="primary" (click)="toggleEnabled()">Toggle selection enabled</button>
+  <div style="height: 1rem"></div>
+  <formly-form [form]="form" [fields]="fields" [options]="options" [model]="model"></formly-form>
+  <div style="height: 1rem"></div>
+  <button type="submit" mat-raised-button color="primary">Submit</button>
+</form>

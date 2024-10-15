@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="flex flex-row items-center justify-between h-16">
+  <button mat-icon-button (click)="onBackClick()">
+    <mat-icon class="mat-icon-rtl-mirror" fontIcon="arrow_back"></mat-icon>
+  </button>
+  <span class="text-4xl text-center toolbar-title">Wellcome to SupeEx</span>
+  <mat-icon>back</mat-icon>
+</mat-toolbar>
+<div class="flex flex-col items-center justify-center h-screen w-full">
+  <router-outlet></router-outlet>
+</div>

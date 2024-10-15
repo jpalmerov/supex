@@ -1,0 +1,7 @@
+.hover-cap {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.hover-cap:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
